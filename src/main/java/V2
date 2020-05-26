@@ -1,0 +1,69 @@
+This is the second version of my implementation. This is less robust as it assumed that the JSON arrays from each API Call are the same. By inspection, I know this to be true, but in situations where
+it is not possible to confirm this, IE with WAY larger data sets are resutls that are harder to understand, this is not ideal. I included it to show my thought processes.
+
+
+
+
+
+
+//            //I know that the lenghts ( number of dates in each array) is the same.
+//            for (int i = 0; i <= arrayRecovered.length() - 1; i++) {  // To loop over all json objects in the array and grab the required values needed. This is the loop for the recovered keyword
+//                String provinceRecovered = arrayRecovered.getJSONObject(i).getString("Province");
+//                String dateRecovered = arrayRecovered.getJSONObject(i).getString("Date");//
+//
+//                String provinceConfirmed = arrayConfirmed.getJSONObject(i).getString("Province");
+//                String dateConfirmed = arrayConfirmed.getJSONObject(i).getString("Date");//
+//
+//                String provinceDeaths = arrayRecovered.getJSONObject(i).getString("Province");
+//                String dateDeaths = arrayRecovered.getJSONObject(i).getString("Date");
+//                int confirmed = arrayConfirmed.getJSONObject(i).getInt("Cases");
+//                int deaths = arrayDeaths.getJSONObject(i).getInt("Cases");
+//                int recovered = arrayRecovered.getJSONObject(i).getInt("Cases");
+//                int active = confirmed - deaths - recovered;
+//                System.out.print(provinceConfirmed);
+//
+//
+//                try {
+//
+//                    PreparedStatement preparedStatement2 = conn.prepareStatement(sql);
+//                    preparedStatement2.setString(1, dateConfirmed);
+//                    preparedStatement2.setString(2, provinceConfirmed);
+//                    preparedStatement2.setInt(3, confirmed);
+//                    preparedStatement2.setInt(4, deaths);
+//                    preparedStatement2.setInt(5, recovered);
+//                    preparedStatement2.setInt(6, active);
+//
+//                    preparedStatement2.executeUpdate();
+//
+//
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            try {
+//                sql = "SELECT * FROM COVID ORDER BY DATE";
+//                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+//                ResultSet resultSet = preparedStatement.executeQuery();
+//                ResultSet v2 = resultSet;
+//                System.out.print(v2.getDate("Date"));
+//                v2.next();
+//                v2.next();
+//                v2.next();
+//                int print = v2.getInt("Confirmed");
+//                System.out.print(print);
+//
+//
+//                String fileName = "C:\\Users\\Anand Samra\\Desktop\\"+ name +".csv";
+//                try {
+//                    CSVWriter writer = new CSVWriter(new FileWriter(fileName),'\t');
+//                    writer.writeAll(resultSet, true);
+//                    writer.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//
+//            }
